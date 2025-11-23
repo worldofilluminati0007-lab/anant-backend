@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
@@ -20,14 +21,24 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { SiWhatsapp } from "react-icons/si";
-import { Calendar, Clock, Phone } from "lucide-react";
+import { Calendar, Clock, Phone, Check, X } from "lucide-react";
 import { insertConsultationSchema, type InsertConsultation } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 
 export default function BookingForm() {
   const { toast } = useToast();
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [pendingData, setPendingData] = useState<InsertConsultation | null>(null);
 
   const form = useForm<InsertConsultation>({
     resolver: zodResolver(insertConsultationSchema),
@@ -75,7 +86,15 @@ Health Concern: ${data.healthConcern}`;
   });
 
   const onSubmit = async (data: InsertConsultation) => {
-    createConsultationMutation.mutate(data);
+    setPendingData(data);
+    setShowConfirmation(true);
+  };
+
+  const confirmBooking = () => {
+    if (pendingData) {
+      createConsultationMutation.mutate(pendingData);
+      setShowConfirmation(false);
+    }
   };
 
   return (
@@ -256,6 +275,78 @@ Health Concern: ${data.healthConcern}`;
           </div>
         </div>
       </div>
+
+      <Dialog open={showConfirmation} onOpenChange={setShowConfirmation}>
+        <DialogContent className="max-w-2xl" data-testid="dialog-confirmation">
+          <DialogHeader>
+            <DialogTitle className="text-2xl">Confirm Your Details</DialogTitle>
+            <DialogDescription>
+              Please review your information before we send it to WhatsApp
+            </DialogDescription>
+          </DialogHeader>
+
+          {pendingData && (
+            <div className="space-y-6 py-4">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <p className="text-sm font-semibold text-primary">Full Name</p>
+                  <p className="text-base text-foreground">{pendingData.patientName}</p>
+                </div>
+                <div className="space-y-2">
+                  <p className="text-sm font-semibold text-primary">Contact Number</p>
+                  <p className="text-base text-foreground">{pendingData.contactNumber}</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <p className="text-sm font-semibold text-primary">Email Address</p>
+                  <p className="text-base text-foreground">{pendingData.email}</p>
+                </div>
+                <div className="space-y-2">
+                  <p className="text-sm font-semibold text-primary">Preferred Time</p>
+                  <p className="text-base text-foreground capitalize">{pendingData.preferredTime}</p>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <p className="text-sm font-semibold text-primary">Health Concern</p>
+                <p className="text-base text-foreground bg-muted/50 p-3 rounded-lg">
+                  {pendingData.healthConcern}
+                </p>
+              </div>
+
+              <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
+                <p className="text-sm text-foreground/80">
+                  <strong>Next Step:</strong> After confirming, we'll open WhatsApp with your details and save your booking in our system.
+                </p>
+              </div>
+            </div>
+          )}
+
+          <DialogFooter className="flex gap-2 pt-4">
+            <Button
+              variant="outline"
+              onClick={() => setShowConfirmation(false)}
+              className="gap-2"
+              data-testid="button-cancel-confirmation"
+            >
+              <X className="w-4 h-4" />
+              Edit Details
+            </Button>
+            <Button
+              variant="default"
+              onClick={confirmBooking}
+              disabled={createConsultationMutation.isPending}
+              className="gap-2"
+              data-testid="button-confirm-booking"
+            >
+              <Check className="w-4 h-4" />
+              {createConsultationMutation.isPending ? "Sending..." : "Confirm & Open WhatsApp"}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
