@@ -30,6 +30,20 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('[data-dropdown-trigger]')) {
+        setOpenDropdown(null);
+      }
+    };
+    
+    if (openDropdown) {
+      document.addEventListener("click", handleClickOutside);
+      return () => document.removeEventListener("click", handleClickOutside);
+    }
+  }, [openDropdown]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -78,7 +92,9 @@ export default function Header() {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-transparent"
+        isScrolled 
+          ? "bg-background/98 backdrop-blur-lg shadow-lg border-b border-border/50" 
+          : "bg-gradient-to-b from-black/20 via-transparent to-transparent"
       }`}
       data-testid="header-main"
     >
@@ -105,37 +121,45 @@ export default function Header() {
             {navigationItems.map((item: any) => (
               <div key={item.label} className="relative">
                 {item.hasDropdown ? (
-                  <div
-                    onMouseEnter={() => setOpenDropdown(item.label)}
-                    onMouseLeave={() => setOpenDropdown(null)}
-                  >
+                  <div data-dropdown-trigger>
                     <Button
                       variant="ghost"
-                      className="gap-1"
+                      className={`gap-1 transition-all duration-200 ${
+                        openDropdown === item.label 
+                          ? "bg-primary/10 text-primary" 
+                          : "hover:bg-primary/5"
+                      }`}
+                      onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
                       data-testid={`button-nav-${item.label.toLowerCase()}`}
                     >
                       {item.label}
-                      <ChevronDown className="w-4 h-4" />
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${
+                        openDropdown === item.label ? "rotate-180" : ""
+                      }`} />
                     </Button>
 
                     {openDropdown === item.label && (
-                      <div className="fixed top-20 left-0 right-0 w-full bg-background border-b border-border shadow-xl z-50">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                          <div className="grid grid-cols-3 gap-8">
+                      <div className="fixed top-20 left-0 right-0 w-full bg-background/95 backdrop-blur-xl border-b border-border shadow-2xl z-50 animate-in fade-in duration-200" data-dropdown-trigger>
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                          <div className="grid grid-cols-3 gap-12">
                             {serviceCategories.map((category) => (
                               <div key={category.category}>
-                                <h3 className="text-lg font-bold text-primary mb-6">{category.category}</h3>
-                                <div className="space-y-4">
+                                <h3 className="text-lg font-bold text-primary mb-8 flex items-center gap-2">
+                                  <div className="h-1 w-6 bg-primary rounded-full" />
+                                  {category.category}
+                                </h3>
+                                <div className="space-y-5">
                                   {category.items.map((subItem) => (
                                     <Link key={subItem.path} href={subItem.path}>
                                       <div
-                                        className="p-3 rounded-lg hover:bg-muted transition-colors cursor-pointer"
+                                        className="group cursor-pointer transition-all duration-200"
                                         data-testid={`link-dropdown-${subItem.label.toLowerCase()}`}
                                       >
-                                        <div className="w-full h-24 bg-gradient-to-br from-primary/20 to-primary/10 rounded-md mb-3 flex items-center justify-center">
-                                          <span className="text-sm font-semibold text-primary">{subItem.label}</span>
+                                        <div className="w-full h-32 bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 rounded-xl mb-4 flex items-center justify-center group-hover:from-primary/40 group-hover:to-primary/20 transition-all duration-200 group-hover:shadow-lg group-hover:scale-105">
+                                          <span className="text-sm font-bold text-primary text-center px-4">{subItem.label}</span>
                                         </div>
-                                        <p className="text-sm font-medium text-foreground">{subItem.label}</p>
+                                        <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-200">{subItem.label}</p>
+                                        <p className="text-xs text-muted-foreground mt-1 group-hover:text-foreground/70">Natural Treatment</p>
                                       </div>
                                     </Link>
                                   ))}
@@ -150,6 +174,7 @@ export default function Header() {
                 ) : item.path === "/" && item.sectionId ? (
                   <Button
                     variant="ghost"
+                    className="transition-all duration-200 hover:bg-primary/5"
                     onClick={() => {
                       if (location === "/") {
                         scrollToSection(item.sectionId);
@@ -163,7 +188,11 @@ export default function Header() {
                   </Button>
                 ) : (
                   <Link href={item.path}>
-                    <Button variant="ghost" data-testid={`button-nav-${item.label.toLowerCase()}`}>
+                    <Button 
+                      variant="ghost" 
+                      className="transition-all duration-200 hover:bg-primary/5"
+                      data-testid={`button-nav-${item.label.toLowerCase()}`}
+                    >
                       {item.label}
                     </Button>
                   </Link>
