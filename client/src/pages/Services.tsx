@@ -25,6 +25,7 @@ const services = [
       "Customized diet and lifestyle plans",
     ],
   },
+  
   {
     title: "Arthritis Relief",
     description: "Gentle yet effective homoeopathic care for joint pain, stiffness, and inflammation.",
