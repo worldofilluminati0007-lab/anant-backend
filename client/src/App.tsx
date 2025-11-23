@@ -9,6 +9,12 @@ import Diabetes from "@/pages/Diabetes";
 import Arthritis from "@/pages/Arthritis";
 import ColdFlu from "@/pages/ColdFlu";
 import SkinIssues from "@/pages/SkinIssues";
+import Migraine from "@/pages/Migraine";
+import Psoriasis from "@/pages/Psoriasis";
+import Eczema from "@/pages/Eczema";
+import Vitiligo from "@/pages/Vitiligo";
+import Asthma from "@/pages/Asthma";
+import Sinusitis from "@/pages/Sinusitis";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -20,6 +26,12 @@ function Router() {
       <Route path="/arthritis" component={Arthritis} />
       <Route path="/cold-flu" component={ColdFlu} />
       <Route path="/skin-issues" component={SkinIssues} />
+      <Route path="/migraine" component={Migraine} />
+      <Route path="/psoriasis" component={Psoriasis} />
+      <Route path="/eczema" component={Eczema} />
+      <Route path="/vitiligo" component={Vitiligo} />
+      <Route path="/asthma" component={Asthma} />
+      <Route path="/sinusitis" component={Sinusitis} />
       <Route component={NotFound} />
     </Switch>
   );

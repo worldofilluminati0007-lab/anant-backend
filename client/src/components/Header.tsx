@@ -1,13 +1,25 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import logoImage from "@assets/WhatsApp Image 2025-11-22 at 11.58.26 AM_1763804419256.jpeg";
+
+interface SubMenuItem {
+  label: string;
+  path: string;
+}
+
+interface ServiceCategory {
+  category: string;
+  items: SubMenuItem[];
+}
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openMobileCategory, setOpenMobileCategory] = useState<string | null>(null);
   const [location] = useLocation();
 
   useEffect(() => {
@@ -29,10 +41,36 @@ export default function Header() {
     }
   };
 
+  const serviceCategories: ServiceCategory[] = [
+    {
+      category: "Chronic Diseases",
+      items: [
+        { label: "Diabetes", path: "/diabetes" },
+        { label: "Arthritis", path: "/arthritis" },
+        { label: "Migraine", path: "/migraine" },
+      ],
+    },
+    {
+      category: "Skin Diseases",
+      items: [
+        { label: "Psoriasis", path: "/psoriasis" },
+        { label: "Eczema", path: "/eczema" },
+        { label: "Vitiligo", path: "/vitiligo" },
+      ],
+    },
+    {
+      category: "Respiratory",
+      items: [
+        { label: "Asthma", path: "/asthma" },
+        { label: "Sinusitis", path: "/sinusitis" },
+      ],
+    },
+  ];
+
   const navigationItems = [
     { label: "Home", path: "/", sectionId: "home" },
     { label: "About", path: "/", sectionId: "about" },
-    { label: "Services", path: "/services" },
+    { label: "Services", path: "/services", hasDropdown: true },
     { label: "Testimonials", path: "/", sectionId: "testimonials" },
     { label: "Contact", path: "/", sectionId: "contact" },
   ];
@@ -64,9 +102,45 @@ export default function Header() {
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
-            {navigationItems.map((item) => (
-              <div key={item.label}>
-                {item.path === "/" && item.sectionId ? (
+            {navigationItems.map((item: any) => (
+              <div key={item.label} className="relative">
+                {item.hasDropdown ? (
+                  <div
+                    onMouseEnter={() => setOpenDropdown(item.label)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <Button
+                      variant="ghost"
+                      className="gap-1"
+                      data-testid={`button-nav-${item.label.toLowerCase()}`}
+                    >
+                      {item.label}
+                      <ChevronDown className="w-4 h-4" />
+                    </Button>
+
+                    {openDropdown === item.label && (
+                      <div className="absolute top-full left-0 mt-0 bg-background border border-border rounded-md shadow-lg z-50 min-w-64">
+                        {serviceCategories.map((category) => (
+                          <div key={category.category} className="border-b last:border-b-0">
+                            <div className="px-4 py-2 text-sm font-semibold text-primary bg-muted/50">
+                              {category.category}
+                            </div>
+                            {category.items.map((subItem) => (
+                              <Link key={subItem.path} href={subItem.path}>
+                                <div
+                                  className="px-4 py-2 text-sm text-foreground hover:bg-muted cursor-pointer transition-colors flex items-center gap-2"
+                                  data-testid={`link-dropdown-${subItem.label.toLowerCase()}`}
+                                >
+                                  {subItem.label}
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : item.path === "/" && item.sectionId ? (
                   <Button
                     variant="ghost"
                     onClick={() => {
@@ -115,9 +189,48 @@ export default function Header() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-background border-t border-border">
           <nav className="px-4 py-6 space-y-2">
-            {navigationItems.map((item) => (
+            {navigationItems.map((item: any) => (
               <div key={item.label}>
-                {item.path === "/" && item.sectionId ? (
+                {item.hasDropdown ? (
+                  <div>
+                    <Button
+                      variant="ghost"
+                      className="w-full justify-between"
+                      onClick={() => setOpenMobileCategory(openMobileCategory === item.label ? null : item.label)}
+                      data-testid={`button-nav-mobile-${item.label.toLowerCase()}`}
+                    >
+                      {item.label}
+                      <ChevronRight className={`w-4 h-4 transition-transform ${openMobileCategory === item.label ? 'rotate-90' : ''}`} />
+                    </Button>
+                    
+                    {openMobileCategory === item.label && (
+                      <div className="pl-4 space-y-1 mt-2 bg-muted/30 rounded-md p-2">
+                        {serviceCategories.map((category) => (
+                          <div key={category.category}>
+                            <div className="text-xs font-semibold text-primary px-2 py-1">
+                              {category.category}
+                            </div>
+                            {category.items.map((subItem) => (
+                              <Link key={subItem.path} href={subItem.path}>
+                                <Button
+                                  variant="ghost"
+                                  className="w-full justify-start text-sm pl-4"
+                                  onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    setOpenMobileCategory(null);
+                                  }}
+                                  data-testid={`link-dropdown-mobile-${subItem.label.toLowerCase()}`}
+                                >
+                                  {subItem.label}
+                                </Button>
+                              </Link>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : item.path === "/" && item.sectionId ? (
                   <Button
                     variant="ghost"
                     className="w-full justify-start"
@@ -127,6 +240,7 @@ export default function Header() {
                       } else {
                         window.location.href = `/#${item.sectionId}`;
                       }
+                      setIsMobileMenuOpen(false);
                     }}
                     data-testid={`button-nav-mobile-${item.label.toLowerCase()}`}
                   >

@@ -8,6 +8,16 @@ A modern, bilingual (English/Hindi) homoeopathy consultation platform designed f
 
 ## Recent Changes
 
+**November 23, 2025** - Dynamic Navigation Enhancement
+- ✅ **Header Dropdown Menu**: Added dynamic dropdown menu for Services with organized categories:
+  - Chronic Diseases: Diabetes, Arthritis, Migraine
+  - Skin Diseases: Psoriasis, Eczema, Vitiligo
+  - Respiratory: Asthma, Sinusitis
+- ✅ **New Disease Pages**: Created 6 new comprehensive disease pages (Migraine, Psoriasis, Eczema, Vitiligo, Asthma, Sinusitis) following MVP page templates
+- ✅ **Desktop Dropdown**: Hover-activated dropdown showing all categories and disease links with smooth transitions
+- ✅ **Mobile Dropdown**: Click-expandable menu with chevron icon animations for touch devices
+- ✅ **Routing**: Updated App.tsx to include routes for all 6 new disease pages
+
 **November 22, 2025** - Complete MVP Implementation
 - ✅ **Frontend**: Built all React components including Header, HeroSlider, AboutSection, BookingForm, ServicesSection, TestimonialCarousel, and Footer
 - ✅ **Pages**: Created Home, Services, and 4 disease-specific pages (Diabetes, Arthritis, Cold & Flu, Skin Issues) with comprehensive content
