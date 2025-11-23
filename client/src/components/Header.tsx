@@ -119,24 +119,31 @@ export default function Header() {
                     </Button>
 
                     {openDropdown === item.label && (
-                      <div className="absolute top-full left-0 mt-0 bg-background border border-border rounded-md shadow-lg z-50 min-w-64">
-                        {serviceCategories.map((category) => (
-                          <div key={category.category} className="border-b last:border-b-0">
-                            <div className="px-4 py-2 text-sm font-semibold text-primary bg-muted/50">
-                              {category.category}
-                            </div>
-                            {category.items.map((subItem) => (
-                              <Link key={subItem.path} href={subItem.path}>
-                                <div
-                                  className="px-4 py-2 text-sm text-foreground hover:bg-muted cursor-pointer transition-colors flex items-center gap-2"
-                                  data-testid={`link-dropdown-${subItem.label.toLowerCase()}`}
-                                >
-                                  {subItem.label}
+                      <div className="fixed top-20 left-0 right-0 w-full bg-background border-b border-border shadow-xl z-50">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                          <div className="grid grid-cols-3 gap-8">
+                            {serviceCategories.map((category) => (
+                              <div key={category.category}>
+                                <h3 className="text-lg font-bold text-primary mb-6">{category.category}</h3>
+                                <div className="space-y-4">
+                                  {category.items.map((subItem) => (
+                                    <Link key={subItem.path} href={subItem.path}>
+                                      <div
+                                        className="p-3 rounded-lg hover:bg-muted transition-colors cursor-pointer"
+                                        data-testid={`link-dropdown-${subItem.label.toLowerCase()}`}
+                                      >
+                                        <div className="w-full h-24 bg-gradient-to-br from-primary/20 to-primary/10 rounded-md mb-3 flex items-center justify-center">
+                                          <span className="text-sm font-semibold text-primary">{subItem.label}</span>
+                                        </div>
+                                        <p className="text-sm font-medium text-foreground">{subItem.label}</p>
+                                      </div>
+                                    </Link>
+                                  ))}
                                 </div>
-                              </Link>
+                              </div>
                             ))}
                           </div>
-                        ))}
+                        </div>
                       </div>
                     )}
                   </div>
