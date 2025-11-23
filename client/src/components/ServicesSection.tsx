@@ -44,10 +44,10 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-16 md:py-24" data-testid="section-services">
+    <section id="services" className="py-24 md:py-32 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" data-testid="section-services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4" data-testid="text-services-title">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground" data-testid="text-services-title">
             Our Specialized Treatments
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto" data-testid="text-services-subtitle">
@@ -55,34 +55,34 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="overflow-hidden hover-elevate active-elevate-2 transition-all group"
+              className="overflow-hidden hover-elevate active-elevate-2 transition-all group border border-primary/10 shadow-md"
               data-testid={`card-service-${index}`}
             >
-              <div className="relative aspect-video overflow-hidden">
+              <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20">
                 <img
                   src={service.image}
                   alt={service.alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
               </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-3" data-testid={`text-service-title-${index}`}>
+              <div className="p-8">
+                <h3 className="text-2xl font-bold mb-3 text-foreground" data-testid={`text-service-title-${index}`}>
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed" data-testid={`text-service-description-${index}`}>
+                <p className="text-muted-foreground mb-5 leading-relaxed" data-testid={`text-service-description-${index}`}>
                   {service.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {service.highlights.map((highlight, hIndex) => (
                     <span
                       key={hIndex}
-                      className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
+                      className="px-3 py-1.5 bg-primary/15 text-primary text-sm font-medium rounded-full border border-primary/20"
                       data-testid={`badge-service-highlight-${index}-${hIndex}`}
                     >
                       {highlight}
@@ -90,7 +90,7 @@ export default function ServicesSection() {
                   ))}
                 </div>
                 <Link href={service.link}>
-                  <Button className="w-full gap-2 group" data-testid={`button-service-learn-more-${index}`}>
+                  <Button className="w-full gap-2 group text-base" data-testid={`button-service-learn-more-${index}`}>
                     Learn More
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </Button>

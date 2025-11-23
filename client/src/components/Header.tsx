@@ -93,29 +93,31 @@ export default function Header() {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? "bg-background/98 backdrop-blur-lg shadow-lg border-b border-border/50" 
-          : "bg-gradient-to-b from-black/20 via-transparent to-transparent"
+          ? "bg-background/95 backdrop-blur-xl shadow-lg border-b border-primary/10" 
+          : "bg-gradient-to-b from-black/25 via-black/10 to-transparent"
       }`}
       data-testid="header-main"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <Link href="/" data-testid="link-home">
-            <div className="flex items-center gap-3 hover-elevate active-elevate-2 px-2 py-1 rounded-md transition-all cursor-pointer">
-              <img 
-                src={logoImage} 
-                alt="अनंत आरोग्य सदन Logo - Homoeopathy Clinic" 
-                className="h-12 w-auto"
-                data-testid="img-logo"
-              />
-              <div className="hidden sm:block">
-                <div className="text-lg font-bold text-primary" style={{ fontFamily: "'Noto Sans Devanagari', sans-serif" }}>
-                  अनंत आरोग्य सदन
+        <div className="flex items-center justify-between h-24">
+          <Button variant="ghost" asChild className="hover-elevate active-elevate-2 px-2">
+            <Link href="/" data-testid="link-home">
+              <div className="flex items-center gap-3 cursor-pointer">
+                <img 
+                  src={logoImage} 
+                  alt="अनंत आरोग्य सदन Logo - Homoeopathy Clinic" 
+                  className="h-14 w-auto"
+                  data-testid="img-logo"
+                />
+                <div className="hidden sm:block">
+                  <div className="text-lg font-bold text-primary" style={{ fontFamily: "'Noto Sans Devanagari', sans-serif" }}>
+                    अनंत आरोग्य सदन
+                  </div>
+                  <div className="text-xs text-muted-foreground font-medium">Wellness Care</div>
                 </div>
-                <div className="text-xs text-muted-foreground">Homoeopathy</div>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </Button>
 
           <nav className="hidden md:flex items-center gap-1">
             {navigationItems.map((item: any) => (

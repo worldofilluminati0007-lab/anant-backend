@@ -98,10 +98,10 @@ Health Concern: ${data.healthConcern}`;
   };
 
   return (
-    <section id="booking" className="py-16 md:py-24" data-testid="section-booking">
+    <section id="booking" className="py-24 md:py-32 bg-gradient-to-br from-primary/8 to-accent/8" data-testid="section-booking">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4" data-testid="text-booking-title">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground" data-testid="text-booking-title">
             Book Your Consultation
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-booking-subtitle">
@@ -109,8 +109,8 @@ Health Concern: ${data.healthConcern}`;
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <Card className="p-8" data-testid="card-booking-form">
+        <div className="grid md:grid-cols-5 gap-12 items-start">
+          <Card className="p-10 md:col-span-3 shadow-lg border border-primary/10" data-testid="card-booking-form">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
@@ -118,11 +118,12 @@ Health Concern: ${data.healthConcern}`;
                   name="patientName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Full Name *</FormLabel>
+                      <FormLabel className="font-semibold text-base">Full Name *</FormLabel>
                       <FormControl>
                         <Input 
                           placeholder="Enter your full name" 
                           {...field} 
+                          className="h-12 text-base rounded-lg"
                           data-testid="input-patient-name"
                         />
                       </FormControl>
@@ -136,11 +137,12 @@ Health Concern: ${data.healthConcern}`;
                   name="contactNumber"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Contact Number *</FormLabel>
+                      <FormLabel className="font-semibold text-base">Contact Number *</FormLabel>
                       <FormControl>
                         <Input 
                           placeholder="10-digit mobile number" 
                           {...field}
+                          className="h-12 text-base rounded-lg"
                           data-testid="input-contact-number"
                         />
                       </FormControl>
@@ -154,12 +156,13 @@ Health Concern: ${data.healthConcern}`;
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email Address *</FormLabel>
+                      <FormLabel className="font-semibold text-base">Email Address *</FormLabel>
                       <FormControl>
                         <Input 
                           type="email"
                           placeholder="your.email@example.com" 
                           {...field}
+                          className="h-12 text-base rounded-lg"
                           data-testid="input-email"
                         />
                       </FormControl>
@@ -173,10 +176,10 @@ Health Concern: ${data.healthConcern}`;
                   name="preferredTime"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Preferred Consultation Time *</FormLabel>
+                      <FormLabel className="font-semibold text-base">Preferred Consultation Time *</FormLabel>
                       <Select onValueChange={field.onChange} value={field.value}>
                         <FormControl>
-                          <SelectTrigger data-testid="select-preferred-time">
+                          <SelectTrigger className="h-12 text-base rounded-lg" data-testid="select-preferred-time">
                             <SelectValue placeholder="Select a time slot" />
                           </SelectTrigger>
                         </FormControl>
@@ -196,11 +199,11 @@ Health Concern: ${data.healthConcern}`;
                   name="healthConcern"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Health Concern *</FormLabel>
+                      <FormLabel className="font-semibold text-base">Health Concern *</FormLabel>
                       <FormControl>
                         <Textarea
                           placeholder="Please describe your health concern or symptoms..."
-                          className="min-h-[120px] resize-none"
+                          className="min-h-[140px] resize-none text-base rounded-lg"
                           {...field}
                           data-testid="textarea-health-concern"
                         />

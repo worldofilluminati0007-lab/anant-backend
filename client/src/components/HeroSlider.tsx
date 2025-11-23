@@ -70,35 +70,38 @@ export default function HeroSlider() {
   };
 
   return (
-    <section id="home" className="relative h-[85vh] md:h-[85vh] overflow-hidden" data-testid="section-hero">
+    <section id="home" className="relative h-[90vh] md:h-[90vh] overflow-hidden" data-testid="section-hero">
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
+          className={`absolute inset-0 transition-opacity duration-1200 ${
             index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
         >
           <img
             src={slide.image}
             alt={slide.alt}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover scale-105"
+            style={{
+              animation: index === currentSlide ? 'scale-bounce-subtle 20s ease-in-out infinite' : 'none',
+            }}
             loading={index === 0 ? "eager" : "lazy"}
             data-testid={`img-hero-slide-${index}`}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent" />
         </div>
       ))}
 
       <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
-        <div className="max-w-4xl text-white">
+        <div className="max-w-2xl text-white animate-fade-up">
           <h1 
-            className="text-4xl md:text-6xl font-bold mb-4 transition-all duration-1000"
+            className="text-5xl md:text-7xl font-bold mb-6 leading-tight transition-all duration-1000"
             data-testid="text-hero-title"
           >
             {slides[currentSlide].title}
           </h1>
           <p 
-            className="text-xl md:text-2xl mb-8 text-white/90 transition-all duration-1000"
+            className="text-lg md:text-xl mb-10 text-white/95 leading-relaxed transition-all duration-1000"
             data-testid="text-hero-subtitle"
           >
             {slides[currentSlide].subtitle}
@@ -107,7 +110,7 @@ export default function HeroSlider() {
             <Button 
               size="lg"
               onClick={scrollToBooking}
-              className="text-lg backdrop-blur-md"
+              className="text-base md:text-lg backdrop-blur-md px-8 py-6 font-semibold"
               data-testid="button-hero-cta-primary"
             >
               {slides[currentSlide].cta}

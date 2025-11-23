@@ -45,10 +45,10 @@ export default function TestimonialCarousel() {
   };
 
   return (
-    <section id="testimonials" className="py-16 md:py-24 bg-accent/30" data-testid="section-testimonials">
+    <section id="testimonials" className="py-24 md:py-32 bg-gradient-to-br from-primary/8 via-transparent to-accent/8" data-testid="section-testimonials">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4" data-testid="text-testimonials-title">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground" data-testid="text-testimonials-title">
             Patient Success Stories
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-testimonials-subtitle">
@@ -57,14 +57,14 @@ export default function TestimonialCarousel() {
         </div>
 
         <div className="relative max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
             {testimonials.map((testimonial, index) => {
               const isActive = index === currentIndex;
               return (
                 <Card
                   key={index}
-                  className={`overflow-hidden transition-all duration-300 cursor-pointer ${
-                    isActive ? "ring-2 ring-primary scale-105" : "opacity-60 hover:opacity-100"
+                  className={`overflow-hidden transition-all duration-300 cursor-pointer hover-elevate active-elevate-2 border border-primary/10 shadow-md ${
+                    isActive ? "ring-2 ring-primary scale-105" : "opacity-70 hover:opacity-100"
                   }`}
                   onClick={() => setCurrentIndex(index)}
                   data-testid={`card-testimonial-${index}`}
@@ -76,17 +76,17 @@ export default function TestimonialCarousel() {
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition-all">
-                      <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center">
-                        <Play className="w-8 h-8 text-primary ml-1" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50 flex items-center justify-center transition-all">
+                      <div className="w-16 h-16 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
+                        <Play className="w-7 h-7 text-secondary ml-1" />
                       </div>
                     </div>
                   </div>
-                  <div className="p-4">
-                    <h4 className="font-semibold text-lg" data-testid={`text-testimonial-name-${index}`}>
+                  <div className="p-5">
+                    <h4 className="font-bold text-base" data-testid={`text-testimonial-name-${index}`}>
                       {testimonial.name}
                     </h4>
-                    <p className="text-sm text-muted-foreground" data-testid={`text-testimonial-condition-${index}`}>
+                    <p className="text-sm text-muted-foreground font-medium" data-testid={`text-testimonial-condition-${index}`}>
                       {testimonial.condition}
                     </p>
                   </div>
@@ -95,10 +95,10 @@ export default function TestimonialCarousel() {
             })}
           </div>
 
-          <Card className="p-8 relative" data-testid="card-active-testimonial">
-            <Quote className="w-12 h-12 text-primary/20 absolute top-4 left-4" />
+          <Card className="p-10 relative border border-primary/10 shadow-lg" data-testid="card-active-testimonial">
+            <Quote className="w-12 h-12 text-primary/15 absolute top-6 left-6" />
             <div className="relative z-10">
-              <p className="text-xl md:text-2xl italic mb-6 leading-relaxed" data-testid="text-active-testimonial-quote">
+              <p className="text-xl md:text-2xl font-medium mb-8 leading-relaxed text-foreground" data-testid="text-active-testimonial-quote">
                 "{testimonials[currentIndex].testimonial}"
               </p>
               <div className="flex items-center justify-between">

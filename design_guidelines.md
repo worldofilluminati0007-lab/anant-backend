@@ -1,121 +1,141 @@
 # Design Guidelines: अनंत आरोग्य सदन Homoeopathy Consultancy
 
 ## Design Approach
-**Reference-Based Hybrid**: Drawing inspiration from modern healthcare platforms (Headspace, Practo) combined with wellness aesthetics (Calm, Ayurvedic wellness sites). The design balances futuristic elements with traditional trust-building for Indian healthcare context.
+**Reference-Based Healthcare**: Drawing from Practo's professional UI, Headspace's wellness aesthetics, and Calm's soothing design language. Modern healthcare platform with futuristic minimalism balanced by traditional trust-building for Indian medical context.
 
-## Core Design Principles
-- **Trust & Credibility**: Clean, professional layouts with generous whitespace
-- **Futuristic Minimalism**: Smooth animations, subtle gradients, and modern card-based interfaces
-- **Cultural Resonance**: Respectful integration of Devanagari script with bilingual approach
-- **Accessibility First**: High contrast ratios, clear hierarchy, readable typography
+## Color System
 
-## Typography System
+**Primary Palette**:
+- Wellness Teal: #14B8A6 (primary actions, headers, accents)
+- Deep Teal: #0D9488 (hover states, secondary elements)
+- Healing Green: #10B981 (success states, wellness indicators)
 
-**Primary Font**: 'Poppins' (Google Fonts) - Modern, clean, excellent multilingual support
-- Hero Headlines: 3rem (48px) desktop, 2rem (32px) mobile, font-weight 700
-- Section Headers: 2rem (32px) desktop, 1.5rem (24px) mobile, font-weight 600
-- Subheadings: 1.25rem (20px), font-weight 500
-- Body Text: 1rem (16px), font-weight 400, line-height 1.7
+**Accent Colors**:
+- Warm Coral: #FB7185 (CTAs, attention elements)
+- Sunset Orange: #F59E0B (highlights, energy accents)
 
-**Secondary Font**: 'Noto Sans Devanagari' for Hindi text
-- Ensures proper rendering of "अनंत आरोग्य सदन"
-- Match weights to Poppins for visual harmony
+**Neutrals**:
+- Background: #FAFAFA (off-white, warm undertone)
+- Surface: #FFFFFF (cards, containers)
+- Text Primary: #1F2937 (headings, important content)
+- Text Secondary: #6B7280 (body text, descriptions)
 
-## Layout & Spacing System
+**Application**:
+- Headers/Navigation: Teal gradient backgrounds
+- Primary buttons: Wellness Teal with white text
+- Secondary buttons: Outline with Teal border
+- Section backgrounds: Alternating white and soft teal tints (bg-teal-50/30)
 
-**Tailwind Units**: Use consistent spacing of 4, 6, 8, 12, 16, 20, 24, 32 units
-- Section padding: py-16 (desktop), py-12 (mobile)
-- Component spacing: gap-8 between cards, gap-6 within components
-- Container max-width: max-w-7xl (1280px)
+## Typography
+
+**Primary**: 'Poppins' (Google Fonts CDN)
+- Hero: 3.5rem (56px) font-bold, tight tracking
+- Section Headers: 2.5rem (40px) font-semibold
+- Subheadings: 1.5rem (24px) font-medium
+- Body: 1.125rem (18px) font-normal, leading-relaxed
+
+**Secondary**: 'Noto Sans Devanagari' for Hindi text, matching weights
+
+## Layout System
+
+**Spacing Units**: Tailwind 4, 8, 12, 16, 20, 24, 32
+- Section padding: py-24 desktop, py-16 mobile
+- Component gaps: gap-8 between cards, gap-6 within
+- Container: max-w-7xl with px-6
 
 ## Component Library
 
-### Header/Navigation
-- Sticky header (h-20) with subtle shadow on scroll
-- Logo placement: left-aligned (h-12 to h-16)
-- Navigation: horizontal menu, dropdown indicators for services submenu
-- Mobile: hamburger menu transitioning to full-screen overlay
-- WhatsApp icon/button in header for quick access
+### Navigation
+Sticky header (h-24), teal gradient background with backdrop-blur
+- Logo left (h-14), bilingual text beside
+- Horizontal menu center-right with dropdown for services
+- WhatsApp floating button (bottom-right, fixed)
+- Mobile: slide-in drawer from right
 
 ### Hero Slider
-- Full-width (100vw), 85vh height desktop, 70vh mobile
-- 3 slides with crossfade transitions (1s duration), 5s interval
-- Overlay gradient: dark gradient from bottom (60% opacity) for text legibility
-- Content positioning: Centered vertically, left-aligned text within max-w-4xl container
-- CTA buttons: Primary (solid) + Secondary (outline), both with backdrop-blur-md
-- Slide indicators: Dots at bottom center with smooth transitions
+Full-width, 90vh desktop/75vh mobile, 3 slides with 6s intervals
+- Crossfade transitions (1.2s ease)
+- Dark gradient overlay (from-black/60 to-transparent)
+- Content: max-w-4xl, left-aligned within container
+- Dual CTAs: Primary (teal solid) + Secondary (white outline), both with backdrop-blur-lg
+- Dot indicators bottom-center with teal active state
 
-### Booking Form Section
-- Two-column layout desktop (md:grid-cols-2): Form left, info/visual right
-- Form fields: Stacked with generous spacing (gap-6)
-- Input styling: Rounded corners (rounded-lg), border focus states with shadow
-- WhatsApp button: Prominent, icon + text, distinctive styling
-- Background: Subtle gradient or soft geometric pattern
+### Booking Section
+Two-column grid (lg:grid-cols-5): Form spans 3 columns, info/visual 2 columns
+- Form: Elevated card (shadow-xl, rounded-2xl, p-10)
+- Inputs: Large (h-14), rounded-xl, focus ring teal
+- WhatsApp CTA: Prominent, coral accent, icon+text
+- Right column: Benefits list + decorative medical illustration
 
-### Disease/Services Cards
-- Grid layout: grid-cols-1 md:grid-cols-2 lg:grid-cols-3
-- Card design: Elevated with shadow-lg, rounded-xl corners
-- Image: Top-positioned, aspect-ratio 16:9, rounded-t-xl
-- Content: p-6 padding, icon + title + description + CTA link
-- Hover: Lift effect (transform translateY(-4px)), shadow enhancement
+### Services Grid
+3-column (lg:grid-cols-3), staggered reveal animation
+- Cards: White surface, shadow-lg, rounded-2xl, overflow-hidden
+- Image top: aspect-ratio-16/9, subtle teal overlay on hover
+- Content: p-8, icon (teal), title (bold), description, arrow link
+- Hover: Lift (translateY(-8px)), shadow-2xl, smooth transition
 
-### Testimonial Carousel
-- Horizontal scroll or slider with 3 visible cards desktop, 1 mobile
-- Video card: Thumbnail with play icon overlay, patient name, condition treated
-- Navigation: Arrow buttons + dot indicators
-- Auto-play muted with user controls
+### Disease Condition Cards
+2-column layout (md:grid-cols-2), alternating image-text sides
+- Large images (w-full md:w-1/2), rounded-3xl
+- Text: Generous padding-12, symptom lists with checkmarks (teal)
+- CTA button at bottom: "Learn Treatment Approach"
+
+### Testimonials
+Horizontal carousel, 3 cards visible desktop, 1 mobile
+- Video thumbnails: Play icon overlay (coral), rounded-lg
+- Text cards: Patient quote, name, condition badge (teal pill)
+- Navigation: Arrow buttons + progress bar (teal)
 
 ### Footer
-- Three-column layout desktop (grid-cols-3), stacked mobile
-- Sections: About/Contact, Quick Links, Social Media
-- Registration number prominently displayed
-- Map integration option for clinic location
+4-column grid (footer-cols-4), teal-900 background, white text
+- Column 1: Logo + tagline
+- Column 2: Quick links (services, diseases)
+- Column 3: Contact info + registration number (highlighted)
+- Column 4: Google Maps embed (rounded, border-teal-500)
 
-## Image Strategy
+## Images
 
-### Hero Slider Images (3 images)
-1. **Consultation Scene**: Doctor consulting patient, modern clinical setting, warm professional atmosphere
-2. **Holistic Healing**: Hands holding homeopathic remedies, natural elements (herbs, flowers), soft focus background
-3. **Wellness Journey**: Patient recovery/wellness imagery, family health, positive outcomes
+**Hero Slider** (3 large format webp):
+1. Modern consultation room: Doctor with patient, warm lighting, professional setting
+2. Homeopathic remedies close-up: Glass vials, natural herbs, soft bokeh background
+3. Family wellness: Multi-generational health, outdoor/bright setting
 
-### Section-Specific Images
-- **About Section**: Founders portrait or clinic exterior (professional photography style)
-- **Disease Pages**: Each disease gets unique AI-generated treatment illustration (e.g., diabetes management, arthritis relief)
-- **Testimonial Thumbnails**: Video preview frames with patient consent imagery
-- **Services Overview**: Icon-based illustrations with subtle healthcare motifs
+**Section Images**:
+- About section: Clinic exterior or founders portrait (professional)
+- Services cards: Each service gets custom illustration (consultation, remedies, follow-up)
+- Disease pages: Medical illustrations showing treatment approach (6-8 unique images)
+- Testimonial video thumbnails: Patient consent photos with play overlay
 
-All images: webp format, descriptive filenames (e.g., homeopathy-consultation-anant-arogya.webp), comprehensive alt text
+**Decorative Elements**:
+- Abstract wellness patterns (SVG): Flowing organic shapes in teal gradients
+- Icon library: Heroicons (medical, health, wellness themed)
 
-## Interaction & Animation
+## Animations
 
-**Micro-interactions**:
-- Button hover: Scale (1.02), shadow increase, 200ms transition
-- Card hover: Lift effect, glow/shadow enhancement
-- Form focus: Input border color change, subtle scale (1.01)
-- Scroll reveal: Fade-up animation for sections (Intersection Observer)
+**Scroll Reveal**: Fade-up with slight scale (0.95 to 1), stagger by 100ms
+**Card Hover**: Transform translateY(-8px) + shadow enhancement, 300ms ease-out
+**Button Interactions**: Scale(1.05), 200ms, teal glow effect
+**Slider**: Smooth crossfade, ken burns effect (subtle zoom on images)
 
-**Slider Transitions**: Crossfade (opacity) 1s ease-in-out, no aggressive movement
+**Performance**: Use Intersection Observer, CSS transforms only, no layout thrashing
 
-**Navigation**: Smooth scroll behavior, 80px offset for sticky header
+## Disease Page Structure
+1. Hero banner (h-80): Disease-specific image, gradient overlay, title
+2. Two-column overview: Symptoms (checkmark list) + Causes (numbered)
+3. Treatment philosophy: Full-width, image left/text right alternating
+4. Success metrics: 3-card stats grid (patients treated, success rate, years experience)
+5. Testimonial mini-carousel: 2 video cards
+6. Related conditions: 4-card grid with images
+7. Bottom CTA: Prominent booking section with form
 
-## Disease Pages Layout
+## Responsive Strategy
+- Mobile (<768px): Single column, simplified nav, stacked forms
+- Tablet (768-1024px): 2-column grids, reduced spacing
+- Desktop (>1024px): Full layouts, generous whitespace
 
-Each disease page follows consistent structure:
-1. Hero banner (h-64): Disease-specific image, title overlay
-2. Overview section: Two-column (symptoms left, causes right)
-3. Treatment approach: Full-width content with supporting visuals
-4. Success stories: 2-3 mini testimonial cards
-5. CTA section: Book consultation prominent placement
-6. Related conditions: Card grid linking to other disease pages
-
-## Responsive Breakpoints
-- Mobile: < 768px (single column, stacked navigation)
-- Tablet: 768px - 1024px (2-column grids)
-- Desktop: > 1024px (full multi-column layouts)
-
-## Accessibility Features
-- ARIA labels for all interactive elements
-- Keyboard navigation support for sliders/carousels
-- High contrast text-to-background ratios (4.5:1 minimum)
-- Focus visible states for all interactive elements
-- Semantic HTML throughout (header, nav, main, section, footer)
+## Accessibility
+- WCAG AA compliance: 4.5:1 text contrast
+- Focus visible: 2px teal ring on all interactive elements
+- Semantic HTML5 structure
+- ARIA labels for carousels, dropdowns
+- Keyboard navigation: Tab order, escape handlers

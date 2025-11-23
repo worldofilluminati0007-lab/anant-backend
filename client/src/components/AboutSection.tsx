@@ -27,10 +27,10 @@ const features = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-16 md:py-24 bg-accent/30" data-testid="section-about">
+    <section id="about" className="py-24 md:py-32 bg-gradient-to-br from-primary/8 to-accent/8" data-testid="section-about">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4" data-testid="text-about-title">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground" data-testid="text-about-title">
             About <span style={{ fontFamily: "'Noto Sans Devanagari', sans-serif" }}>अनंत आरोग्य सदन</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto" data-testid="text-about-subtitle">
@@ -38,15 +38,15 @@ export default function AboutSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
           <div className="order-2 md:order-1">
-            <h3 className="text-2xl md:text-3xl font-semibold mb-6" data-testid="text-about-story-title">
+            <h3 className="text-3xl md:text-4xl font-bold mb-8 text-foreground" data-testid="text-about-story-title">
               Our Story & Vision
             </h3>
-            <div className="space-y-4 text-lg text-card-foreground leading-relaxed">
+            <div className="space-y-5 text-lg text-muted-foreground leading-relaxed">
               <p data-testid="text-about-paragraph-1">
                 Founded with a vision to bring authentic homoeopathic healing to every household, 
-                <span style={{ fontFamily: "'Noto Sans Devanagari', sans-serif" }} className="font-semibold"> अनंत आरोग्य सदन </span>
+                <span style={{ fontFamily: "'Noto Sans Devanagari', sans-serif" }} className="font-bold text-primary"> अनंत आरोग्य सदन </span>
                 has been a beacon of hope for those seeking natural, gentle, and effective healthcare solutions.
               </p>
               <p data-testid="text-about-paragraph-2">
@@ -66,7 +66,7 @@ export default function AboutSection() {
             <img
               src={aboutImage}
               alt="अनंत आरोग्य सदन founders and clinic - Professional homoeopathy practitioners"
-              className="rounded-xl w-full h-auto shadow-lg"
+              className="rounded-2xl w-full h-auto shadow-xl border border-primary/10"
               loading="lazy"
               data-testid="img-about-founders"
             />
@@ -79,16 +79,16 @@ export default function AboutSection() {
             return (
               <Card 
                 key={index} 
-                className="p-6 hover-elevate active-elevate-2 transition-all"
+                className="p-8 hover-elevate active-elevate-2 transition-all border border-primary/10 shadow-md"
                 data-testid={`card-feature-${index}`}
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Icon className="w-6 h-6 text-primary" />
+                <div className="w-14 h-14 bg-primary/15 rounded-xl flex items-center justify-center mb-5 border border-primary/20">
+                  <Icon className="w-7 h-7 text-primary" />
                 </div>
-                <h4 className="text-xl font-semibold mb-2" data-testid={`text-feature-title-${index}`}>
+                <h4 className="text-lg font-bold mb-3 text-foreground" data-testid={`text-feature-title-${index}`}>
                   {feature.title}
                 </h4>
-                <p className="text-muted-foreground" data-testid={`text-feature-description-${index}`}>
+                <p className="text-muted-foreground text-sm leading-relaxed" data-testid={`text-feature-description-${index}`}>
                   {feature.description}
                 </p>
               </Card>
