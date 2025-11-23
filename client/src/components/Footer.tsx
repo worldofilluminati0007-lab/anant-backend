@@ -1,10 +1,13 @@
-import { Link } from "wouter";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { SiWhatsapp, SiFacebook, SiInstagram, SiYoutube } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+
+  const navigateTo = (path: string) => {
+    window.location.href = path;
+  };
 
   return (
     <footer id="contact" className="bg-muted py-12 border-t" data-testid="footer-main">
@@ -27,46 +30,64 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/">
-                  <Button variant="link" className="p-0 h-auto" data-testid="link-footer-home">
-                    Home
-                  </Button>
-                </Link>
+                <Button 
+                  variant="link" 
+                  className="p-0 h-auto" 
+                  onClick={() => navigateTo("/")}
+                  data-testid="link-footer-home"
+                >
+                  Home
+                </Button>
               </li>
               <li>
-                <Link href="/services">
-                  <Button variant="link" className="p-0 h-auto" data-testid="link-footer-services">
-                    Our Services
-                  </Button>
-                </Link>
+                <Button 
+                  variant="link" 
+                  className="p-0 h-auto" 
+                  onClick={() => navigateTo("/services")}
+                  data-testid="link-footer-services"
+                >
+                  Our Services
+                </Button>
               </li>
               <li>
-                <Link href="/diabetes">
-                  <Button variant="link" className="p-0 h-auto" data-testid="link-footer-diabetes">
-                    Diabetes Treatment
-                  </Button>
-                </Link>
+                <Button 
+                  variant="link" 
+                  className="p-0 h-auto" 
+                  onClick={() => navigateTo("/diabetes")}
+                  data-testid="link-footer-diabetes"
+                >
+                  Diabetes Treatment
+                </Button>
               </li>
               <li>
-                <Link href="/arthritis">
-                  <Button variant="link" className="p-0 h-auto" data-testid="link-footer-arthritis">
-                    Arthritis Care
-                  </Button>
-                </Link>
+                <Button 
+                  variant="link" 
+                  className="p-0 h-auto" 
+                  onClick={() => navigateTo("/arthritis")}
+                  data-testid="link-footer-arthritis"
+                >
+                  Arthritis Care
+                </Button>
               </li>
               <li>
-                <Link href="/cold-flu">
-                  <Button variant="link" className="p-0 h-auto" data-testid="link-footer-cold-flu">
-                    Cold & Flu Relief
-                  </Button>
-                </Link>
+                <Button 
+                  variant="link" 
+                  className="p-0 h-auto" 
+                  onClick={() => navigateTo("/cold-flu")}
+                  data-testid="link-footer-cold-flu"
+                >
+                  Cold & Flu Relief
+                </Button>
               </li>
               <li>
-                <Link href="/skin-issues">
-                  <Button variant="link" className="p-0 h-auto" data-testid="link-footer-skin">
-                    Skin Health
-                  </Button>
-                </Link>
+                <Button 
+                  variant="link" 
+                  className="p-0 h-auto" 
+                  onClick={() => navigateTo("/skin-issues")}
+                  data-testid="link-footer-skin"
+                >
+                  Skin Health
+                </Button>
               </li>
             </ul>
           </div>
