@@ -141,27 +141,29 @@ export default function Header() {
                     </Button>
 
                     {openDropdown === item.label && (
-                      <div className="fixed top-20 left-0 right-0 w-full bg-background/95 backdrop-blur-xl border-b border-border shadow-2xl z-50 animate-in fade-in duration-200" data-dropdown-trigger>
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                          <div className="grid grid-cols-3 gap-12">
-                            {serviceCategories.map((category) => (
-                              <div key={category.category}>
-                                <h3 className="text-lg font-bold text-primary mb-8 flex items-center gap-2">
-                                  <div className="h-1 w-6 bg-primary rounded-full" />
+                      <div className="fixed top-24 left-0 right-0 w-full bg-background/98 backdrop-blur-2xl border-b border-primary/10 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-300" data-dropdown-trigger>
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                          <div className="grid grid-cols-3 gap-16">
+                            {serviceCategories.map((category, catIdx) => (
+                              <div key={category.category} className="animate-in fade-in slide-in-from-bottom-2 duration-300" style={{ animationDelay: `${catIdx * 50}ms` }}>
+                                <h3 className="text-base font-bold text-foreground mb-8 flex items-center gap-3 uppercase tracking-wider">
+                                  <div className="h-1.5 w-8 bg-gradient-to-r from-primary to-accent rounded-full" />
                                   {category.category}
                                 </h3>
-                                <div className="space-y-5">
-                                  {category.items.map((subItem) => (
+                                <div className="space-y-4">
+                                  {category.items.map((subItem, itemIdx) => (
                                     <Link key={subItem.path} href={subItem.path}>
                                       <div
-                                        className="group cursor-pointer transition-all duration-200"
+                                        className="group cursor-pointer transition-all duration-300"
                                         data-testid={`link-dropdown-${subItem.label.toLowerCase()}`}
+                                        style={{ animationDelay: `${50 + itemIdx * 30}ms` }}
                                       >
-                                        <div className="w-full h-32 bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 rounded-xl mb-4 flex items-center justify-center group-hover:from-primary/40 group-hover:to-primary/20 transition-all duration-200 group-hover:shadow-lg group-hover:scale-105">
-                                          <span className="text-sm font-bold text-primary text-center px-4">{subItem.label}</span>
+                                        <div className="relative h-28 bg-gradient-to-br from-primary/25 via-primary/15 to-accent/10 rounded-xl mb-3 flex items-center justify-center overflow-hidden group-hover:from-primary/35 group-hover:to-accent/15 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1 border border-primary/20 group-hover:border-primary/40">
+                                          <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                          <span className="text-sm font-bold text-primary text-center px-4 relative z-10 group-hover:text-accent transition-colors">{subItem.label}</span>
                                         </div>
                                         <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-200">{subItem.label}</p>
-                                        <p className="text-xs text-muted-foreground mt-1 group-hover:text-foreground/70">Natural Treatment</p>
+                                        <p className="text-xs text-muted-foreground mt-1 group-hover:text-foreground/70 transition-colors">Natural Care</p>
                                       </div>
                                     </Link>
                                   ))}
