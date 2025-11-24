@@ -1,3 +1,14 @@
+# Replit junk files ignore
+.local/
+.replit
+repl_state.bin
+
+# Node folders ignore
+node_modules/
+dist/
+build/
+.env
+
 node_modules
 dist
 .DS_Store
