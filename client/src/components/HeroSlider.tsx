@@ -1,37 +1,47 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage1 from "@assets/generated_images/homoeopathy_consultation_professional_scene.png";
 import heroImage2 from "@assets/generated_images/holistic_homeopathic_remedies_natural.png";
 import heroImage3 from "@assets/generated_images/family_wellness_health_recovery.png";
 
-const slides = [
+const slideConfig = [
   {
     image: heroImage1,
     alt: "Professional homoeopathy consultation - Expert doctor consulting patient in modern clinic",
-    title: "Expert Homoeopathic Care",
-    subtitle: "Experience natural healing with personalized treatment plans",
-    cta: "Book Consultation",
+    titleKey: "hero.title",
+    subtitleKey: "hero.subtitle",
+    ctaKey: "hero.cta",
   },
   {
     image: heroImage2,
     alt: "Natural homeopathic remedies - Holistic healing with herbs and natural ingredients",
-    title: "Natural Healing Solutions",
-    subtitle: "Gentle, effective remedies for lasting wellness",
-    cta: "Learn More",
+    titleKey: "hero.title2",
+    subtitleKey: "hero.subtitle2",
+    ctaKey: "hero.cta2",
   },
   {
     image: heroImage3,
     alt: "Family wellness and health recovery - Happy healthy family showing treatment success",
-    title: "Your Journey to Wellness",
-    subtitle: "Trusted by families for comprehensive health care",
-    cta: "Get Started",
+    titleKey: "hero.title3",
+    subtitleKey: "hero.subtitle3",
+    ctaKey: "hero.cta3",
   },
 ];
 
 export default function HeroSlider() {
+  const { t } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  // Create slides with translated content
+  const slides = slideConfig.map(slide => ({
+    ...slide,
+    title: t(slide.titleKey),
+    subtitle: t(slide.subtitleKey),
+    cta: t(slide.ctaKey),
+  }));
 
   useEffect(() => {
     if (!isAutoPlaying) return;

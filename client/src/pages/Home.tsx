@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import HeroSlider from "@/components/HeroSlider";
+import HomeopathyIntroSection from "@/components/HomeopathyIntroSection";
+import SpecialtiesSection from "@/components/SpecialtiesSection";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import BookingForm from "@/components/BookingForm";
-import TestimonialCarousel from "@/components/TestimonialCarousel";
+import VideoTestimonials from "@/components/VideoTestimonials";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -28,10 +30,12 @@ export default function Home() {
       <Header />
       <main>
         <HeroSlider />
+        <HomeopathyIntroSection />
         <AboutSection />
+        <SpecialtiesSection />
         <ServicesSection />
         <BookingForm />
-        <TestimonialCarousel />
+        <VideoTestimonials />
       </main>
       <Footer />
     </div>

@@ -10,7 +10,7 @@ import coldFluImage from "@assets/generated_images/cold_flu_natural_treatment.pn
 export default function ColdFlu() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Cold & Flu Treatment - अनंत आरोग्य सदन | Natural Immune Support";
+    document.title = "TEST";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

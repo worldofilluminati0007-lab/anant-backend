@@ -1,0 +1,240 @@
+{
+  "common": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "language": "Language",
+    "english": "English",
+    "hindi": "हिंदी",
+    "bookNow": "Book Now",
+    "learnMore": "Learn More",
+    "appointment": "Book Appointment",
+    "callUs": "Call Us",
+    "emailUs": "Email Us",
+    "followUs": "Follow Us",
+    "readMore": "Read More",
+    "description": "Description",
+    "symptoms": "Symptoms",
+    "treatment": "Treatment",
+    "benefits": "Benefits",
+    "whyChooseUs": "Why Choose Us",
+    "ourServices": "Our Services",
+    "testimonials": "Testimonials",
+    "aboutClinic": "About Our Clinic",
+    "consultNow": "Consult Now"
+  },
+  "header": {
+    "title": "Homeopathy Consultancy",
+    "phone": "Phone",
+    "whatsapp": "WhatsApp",
+    "neurologicalSeizures": "Neurological & Seizures",
+    "endocrineMetabolic": "Endocrine & Metabolic",
+    "urinaryDigestive": "Urinary & Digestive",
+    "musculoskeletal": "Musculoskeletal",
+    "dermatological": "Dermatological",
+    "reproductiveGynecological": "Reproductive & Gynecological",
+    "otherConditions": "Other Conditions"
+  },
+  "hero": {
+    "title": "Expert Homoeopathic Care",
+    "title2": "Natural Healing Solutions",
+    "title3": "Your Journey to Wellness",
+    "subtitle": "Experience natural healing with personalized treatment plans",
+    "subtitle2": "Gentle, effective remedies for lasting wellness",
+    "subtitle3": "Trusted by families for comprehensive health care",
+    "cta": "Book Consultation",
+    "cta2": "Learn More",
+    "cta3": "Get Started"
+  },
+  "aboutSection": {
+    "title": "About Our Clinic",
+    "description": "We provide comprehensive homeopathic treatment for various conditions with a focus on holistic healing and natural remedies.",
+    "feature1": "Expert Consultation",
+    "feature2": "Natural Treatment",
+    "feature3": "Personalized Care"
+  },
+  "services": {
+    "title": "Our Services",
+    "epilepsy": "Epilepsy",
+    "thyroidDisorders": "Thyroid Disorders",
+    "kidneystones": "Kidney & Gallbladder Stones",
+    "diabetes": "Diabetes",
+    "arthritis": "Arthritis & Joint Pain",
+    "eczema": "Eczema & Dermatitis",
+    "asthma": "Asthma",
+    "migraines": "Migraines & Headaches",
+    "typhoid": "Typhoid Fever",
+    "cholesterol": "High Cholesterol",
+    "psoriasis": "Psoriasis",
+    "vitiligo": "Vitiligo",
+    "acne": "Acne & Pimples",
+    "warts": "Warts & Skin Growths",
+    "sinusitis": "Sinusitis",
+    "coldFlu": "Cold & Flu",
+    "allergies": "Allergies"
+  },
+  "booking": {
+    "title": "Book Your Consultation",
+    "name": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "message": "Message",
+    "submit": "Submit",
+    "success": "Appointment booked successfully!",
+    "error": "Failed to book appointment. Please try again."
+  },
+  "footer": {
+    "title": "Homeopathy Consultancy",
+    "description": "Providing natural homeopathic treatment for various health conditions.",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Hours",
+    "rights": "All rights reserved",
+    "follow": "Follow Us"
+  },
+  "conditions": {
+    "epilepsy": {
+      "title": "Epilepsy Treatment",
+      "subtitle": "Natural Homeopathic Treatment for Seizure Disorders",
+      "overview": "Epilepsy is a neurological condition characterized by recurrent seizures. Homeopathic treatment focuses on reducing seizure frequency and improving overall neurological health.",
+      "focus1": "Seizure Control",
+      "focus2": "Neurological Balance",
+      "focus3": "Quality of Life",
+      "focus4": "Reduced Medication",
+      "focus5": "Mental Clarity",
+      "focus6": "Overall Wellness"
+    },
+    "thyroidDisorders": {
+      "title": "Thyroid Disorders Treatment",
+      "subtitle": "Natural Homeopathic Care for Thyroid Imbalance",
+      "overview": "Thyroid disorders affect metabolism and energy levels. Our homeopathic approach helps restore thyroid balance naturally."
+    },
+    "diabetes": {
+      "title": "Diabetes Treatment",
+      "subtitle": "Natural Homeopathic Management for Diabetes",
+      "overview": "Diabetes requires comprehensive management. Homeopathy offers natural support for blood sugar regulation."
+    },
+    "arthritis": {
+      "title": "Arthritis Treatment",
+      "subtitle": "Natural Relief from Arthritis Pain",
+      "overview": "Arthritis causes joint pain and inflammation. Our treatments focus on natural pain relief and joint health."
+    },
+    "eczema": {
+      "title": "Eczema Treatment",
+      "subtitle": "Natural Skin Care for Eczema",
+      "overview": "Eczema is a skin condition causing itching and inflammation. Homeopathic remedies treat it naturally."
+    },
+    "asthma": {
+      "title": "Asthma Treatment",
+      "subtitle": "Natural Respiratory Support for Asthma",
+      "overview": "Asthma affects breathing. Our homeopathic treatments improve respiratory function naturally."
+    },
+    "migraines": {
+      "title": "Migraine Treatment",
+      "subtitle": "Natural Relief from Migraine Headaches",
+      "overview": "Migraines cause severe headaches. Homeopathy offers natural pain relief and prevention."
+    },
+    "tumors": {
+      "title": "Tumor Management",
+      "subtitle": "Natural Support for Body Tumors",
+      "overview": "Tumors are a serious condition. Homeopathic treatments focus on overall health and immune support."
+    },
+    "typhoid": {
+      "title": "Typhoid Fever Treatment",
+      "subtitle": "Natural Treatment for Typhoid Infection",
+      "overview": "Typhoid is an infectious disease. Homeopathy strengthens immunity and promotes quick recovery."
+    },
+    "cholesterol": {
+      "title": "High Cholesterol Treatment",
+      "subtitle": "Natural Management of Cholesterol Levels",
+      "overview": "High cholesterol affects heart health. Homeopathic treatments help control cholesterol naturally."
+    },
+    "retinalDisorders": {
+      "title": "Retinal Disorders Treatment",
+      "subtitle": "Natural Support for Eye Vision",
+      "overview": "Retinal disorders affect vision. Homeopathic treatments improve eye health and vision."
+    },
+    "kidneyStones": {
+      "title": "Kidney Stone Treatment",
+      "subtitle": "Natural Relief from Kidney and Gallbladder Stones",
+      "overview": "Kidney stones cause severe pain. Homeopathic treatments help dissolve stones and relieve pain."
+    },
+    "allergies": {
+      "title": "Allergy Treatment",
+      "subtitle": "Natural Solution for Allergic Disorders",
+      "overview": "Allergies affect respiration and skin. Homeopathic treatments strengthen the immune system."
+    },
+    "leucorrhoea": {
+      "title": "Leucorrhoea Treatment",
+      "subtitle": "Natural Care for Women's Health",
+      "overview": "Leucorrhoea is a women's health condition. Homeopathic treatments restore reproductive health."
+    },
+    "spermatorrhea": {
+      "title": "Spermatorrhea Treatment",
+      "subtitle": "Natural Solution for Men's Reproductive Health",
+      "overview": "Spermatorrhea is a men's health disorder. Homeopathic treatments restore reproductive function."
+    },
+    "pilesHemorrhoids": {
+      "title": "Piles and Hemorrhoids Treatment",
+      "subtitle": "Natural Relief from Hemorrhoids",
+      "overview": "Piles are inflamed veins in the anus. Homeopathic treatments reduce pain and bleeding."
+    },
+    "fistula": {
+      "title": "Fistula Treatment",
+      "subtitle": "Natural Treatment for Anal Fistula",
+      "overview": "Fistula is a serious condition. Homeopathic treatments heal infections and promote recovery."
+    },
+    "wartsSkingrowths": {
+      "title": "Warts and Skin Growths",
+      "subtitle": "Natural Solution for Skin Growths",
+      "overview": "Warts and skin growths are common skin problems. Homeopathic treatments remove them naturally."
+    },
+    "acnePimples": {
+      "title": "Acne and Pimples Treatment",
+      "subtitle": "Natural Skin Care for Acne",
+      "overview": "Acne is common in teenagers and young adults. Homeopathic treatments clear and heal skin."
+    },
+    "cystsNodules": {
+      "title": "Cysts and Nodules Treatment",
+      "subtitle": "Natural Solution for Skin Cysts",
+      "overview": "Cysts and nodules are skin growths. Homeopathic treatments heal them naturally."
+    },
+    "vitiligo": {
+      "title": "Vitiligo Treatment",
+      "subtitle": "Natural Treatment for White Patches",
+      "overview": "Vitiligo is a skin condition with light patches. Homeopathic treatments help restore skin color."
+    },
+    "breastCancer": {
+      "title": "Breast Cancer Management",
+      "subtitle": "Holistic Support for Breast Cancer",
+      "overview": "Breast cancer is a serious disorder. Homeopathic treatments support overall health and immunity."
+    },
+    "skinDiseases": {
+      "title": "Skin Diseases Treatment",
+      "subtitle": "Natural Solution for Various Skin Disorders",
+      "overview": "Skin diseases are of various types. Homeopathic treatments restore skin health."
+    },
+    "sciatica": {
+      "title": "Sciatica and Nerve Pain",
+      "subtitle": "Natural Relief from Nerve Pain",
+      "overview": "Sciatica causes leg pain. Homeopathic treatments reduce nerve pain."
+    },
+    "psoriasis": {
+      "title": "Psoriasis Treatment",
+      "subtitle": "Natural Skin Care for Psoriasis",
+      "overview": "Psoriasis is a chronic skin condition. Homeopathic treatments soothe skin and reduce itching."
+    },
+    "sinusitis": {
+      "title": "Sinusitis Treatment",
+      "subtitle": "Natural Relief from Sinus Inflammation",
+      "overview": "Sinusitis is inflammation of nose and sinuses. Homeopathic treatments reduce nasal congestion and inflammation."
+    },
+    "coldFlu": {
+      "title": "Cold and Flu Treatment",
+      "subtitle": "Natural Treatment for Cold and Flu",
+      "overview": "Cold and flu are common infectious diseases. Homeopathic treatments reduce symptoms and promote quick recovery."
+    }
+  }
+}

@@ -3,6 +3,8 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSelector from "./LanguageSelector";
 import logoImage from "@assets/WhatsApp Image 2025-11-22 at 11.58.26 AM_1763804419256.jpeg";
 
 interface SubMenuItem {
@@ -16,6 +18,7 @@ interface ServiceCategory {
 }
 
 export default function Header() {
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -57,19 +60,46 @@ export default function Header() {
 
   const serviceCategories: ServiceCategory[] = [
     {
-      category: "Chronic Diseases",
+      category: "Neurological & Seizures",
       items: [
-        { label: "Diabetes", path: "/diabetes" },
-        { label: "Arthritis", path: "/arthritis" },
-        { label: "Migraine", path: "/migraine" },
+        { label: "Epilepsy", path: "/epilepsy" },
+        { label: "Migraines & Headaches", path: "/migraine" },
+        { label: "Sciatica & Nerve Pain", path: "/sciatica" },
       ],
     },
     {
-      category: "Skin Diseases",
+      category: "Endocrine & Metabolic",
       items: [
+        { label: "Thyroid Disorders", path: "/thyroid-disorders" },
+        { label: "Diabetes", path: "/diabetes" },
+        { label: "High Cholesterol", path: "/cholesterol" },
+      ],
+    },
+    {
+      category: "Urinary & Digestive",
+      items: [
+        { label: "Kidney & Gallbladder Stones", path: "/kidney-gallbladder-stones" },
+        { label: "Piles & Hemorrhoids", path: "/piles-hemorrhoids" },
+        { label: "Fistula in Ano", path: "/fistula" },
+      ],
+    },
+    {
+      category: "Musculoskeletal",
+      items: [
+        { label: "Arthritis & Joint Pain", path: "/arthritis" },
+        { label: "Tumors (Body, Bone, Uterine)", path: "/tumors" },
+      ],
+    },
+    {
+      category: "Dermatological",
+      items: [
+        { label: "Eczema & Dermatitis", path: "/eczema" },
         { label: "Psoriasis", path: "/psoriasis" },
-        { label: "Eczema", path: "/eczema" },
-        { label: "Vitiligo", path: "/vitiligo" },
+        { label: "Warts & Skin Growths", path: "/warts" },
+        { label: "Acne & Pimples", path: "/acne-pimples" },
+        { label: "Vitiligo & White Patches", path: "/vitiligo" },
+        { label: "Skin Diseases", path: "/skin-diseases" },
+        { label: "Cysts & Nodules", path: "/cysts-nodules" },
       ],
     },
     {
@@ -77,13 +107,45 @@ export default function Header() {
       items: [
         { label: "Asthma", path: "/asthma" },
         { label: "Sinusitis", path: "/sinusitis" },
+        { label: "Cold & Flu", path: "/cold-flu" },
+      ],
+    },
+    {
+      category: "Infectious Diseases",
+      items: [
+        { label: "Typhoid Fever", path: "/typhoid" },
+      ],
+    },
+    {
+      category: "Women's Health",
+      items: [
+        { label: "Leucorrhoea", path: "/leucorrhoea" },
+        { label: "Breast Cancer & Tumors", path: "/breast-cancer" },
+      ],
+    },
+    {
+      category: "Men's Health",
+      items: [
+        { label: "Spermatorrhea", path: "/spermatorrhea" },
+      ],
+    },
+    {
+      category: "Eye Conditions",
+      items: [
+        { label: "Retinal Disorders", path: "/retinal-disorders" },
+      ],
+    },
+    {
+      category: "Allergies & Immunity",
+      items: [
+        { label: "Allergic Disorders", path: "/allergies" },
       ],
     },
   ];
 
   const navigationItems = [
     { label: "Home", path: "/", sectionId: "home" },
-    { label: "About", path: "/", sectionId: "about" },
+    { label: "About", path: "/about" },
     { label: "Services", path: "/services", hasDropdown: true },
     { label: "Testimonials", path: "/", sectionId: "testimonials" },
     { label: "Contact", path: "/", sectionId: "contact" },
@@ -105,7 +167,7 @@ export default function Header() {
               <div className="flex items-center gap-3 cursor-pointer">
                 <img 
                   src={logoImage} 
-                  alt="अनंत आरोग्य सदन Logo - Homoeopathy Clinic" 
+                  alt="Anant Arogya Sadan Logo - Homoeopathy Clinic" 
                   className="h-14 w-auto"
                   data-testid="img-logo"
                 />
@@ -142,26 +204,30 @@ export default function Header() {
 
                     {openDropdown === item.label && (
                       <div 
-                        className="fixed top-24 left-0 right-0 bg-background border-b border-primary/10 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-200" 
+                        className="fixed top-24 left-0 right-0 bg-background border-b border-primary/10 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-200 max-h-[70vh] overflow-y-auto" 
                         data-dropdown-trigger
                       >
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-                          <div className="grid grid-cols-3 gap-16">
+                          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                             {serviceCategories.map((category) => (
                               <div key={category.category}>
                                 <h3 className="text-sm font-bold text-primary mb-6 flex items-center gap-2 uppercase tracking-widest">
-                                  <div className="h-1 w-6 bg-gradient-to-r from-primary to-accent rounded-full" />
+                                  <div className="h-1 w-4 bg-gradient-to-r from-primary to-accent rounded-full" />
                                   {category.category}
                                 </h3>
                                 <div className="space-y-3">
                                   {category.items.map((subItem) => (
                                     <Link key={subItem.path} href={subItem.path}>
                                       <div
-                                        className="group cursor-pointer transition-all duration-200 p-3 rounded-lg hover:bg-primary/5"
+                                        className={`group cursor-pointer transition-all duration-200 p-3 rounded-lg hover:bg-primary/5 ${
+                                          location === subItem.path ? "bg-primary/10 border-l-2 border-primary" : ""
+                                        }`}
                                         data-testid={`link-dropdown-${subItem.label.toLowerCase()}`}
                                         onClick={() => setOpenDropdown(null)}
                                       >
-                                        <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{subItem.label}</p>
+                                        <p className={`text-sm font-semibold transition-colors ${
+                                          location === subItem.path ? "text-primary" : "text-foreground group-hover:text-primary"
+                                        }`}>{subItem.label}</p>
                                         <p className="text-xs text-muted-foreground mt-0.5">Homoeopathic Care</p>
                                       </div>
                                     </Link>
@@ -202,6 +268,7 @@ export default function Header() {
                 )}
               </div>
             ))}
+            <LanguageSelector />
             <Button 
               variant="default"
               className="ml-4 gap-2"
@@ -213,15 +280,18 @@ export default function Header() {
             </Button>
           </nav>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            data-testid="button-mobile-menu-toggle"
-          >
-            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </Button>
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageSelector />
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              data-testid="button-mobile-menu-toggle"
+            >
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </Button>
+          </div>
         </div>
       </div>
 

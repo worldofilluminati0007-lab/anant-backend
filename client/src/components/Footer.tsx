@@ -1,8 +1,10 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import { SiWhatsapp, SiFacebook, SiInstagram, SiYoutube } from "react-icons/si";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   const navigateTo = (path: string) => {

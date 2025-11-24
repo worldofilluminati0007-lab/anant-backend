@@ -227,7 +227,7 @@ Health Concern: ${data.healthConcern}`;
             </Form>
           </Card>
 
-          <div className="space-y-6">
+          <div className="space-y-6 md:col-span-2">
             <Card className="p-6" data-testid="card-contact-info">
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
                 <Phone className="w-6 h-6 text-primary" />
