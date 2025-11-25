@@ -65,7 +65,7 @@ Preferred Time: ${data.preferredTime}
 Health Concern: ${data.healthConcern}`;
 
       const encodedMessage = encodeURIComponent(whatsappMessage);
-      const whatsappUrl = `https://wa.me/919999999999?text=${encodedMessage}`;
+      const whatsappUrl = `https://wa.me/919288060107?text=${encodedMessage}`;
       
       window.open(whatsappUrl, "_blank");
       
@@ -234,9 +234,10 @@ Health Concern: ${data.healthConcern}`;
                 Contact Information
               </h3>
               <div className="space-y-3 text-muted-foreground">
-                <p><strong className="text-foreground">Phone:</strong> +91 99999 99999</p>
+                <p><strong className="text-foreground">Phone:</strong> +91 92880 60107</p>
                 <p><strong className="text-foreground">Email:</strong> info@anantarogyasadan.com</p>
-                <p><strong className="text-foreground">Registration:</strong> HC-REG-2024-XXXX</p>
+                <p><strong className="text-foreground">Registration:</strong> 20562 (Patna)</p>
+                <p><strong className="text-foreground">Address:</strong> Chanho, dist. Ranchi, Jharkhand 835214</p>
               </div>
             </Card>
 

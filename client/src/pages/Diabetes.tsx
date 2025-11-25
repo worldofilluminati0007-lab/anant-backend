@@ -166,7 +166,7 @@ export default function Diabetes() {
                   size="lg" 
                   variant="outline"
                   className="gap-2"
-                  onClick={() => window.open("https://wa.me/919999999999?text=I would like to know more about diabetes treatment", "_blank")}
+                  onClick={() => window.open("https://wa.me/919288060107?text=I would like to know more about diabetes treatment", "_blank")}
                   data-testid="button-whatsapp-contact"
                 >
                   <SiWhatsapp className="w-5 h-5" />

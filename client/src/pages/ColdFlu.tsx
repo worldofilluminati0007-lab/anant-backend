@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BookingModal from "@/components/BookingModal";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check, Activity, Heart, Target } from "lucide-react";
@@ -8,9 +9,11 @@ import { SiWhatsapp } from "react-icons/si";
 import coldFluImage from "@assets/generated_images/cold_flu_natural_treatment.png";
 
 export default function ColdFlu() {
+  const [bookingModalOpen, setBookingModalOpen] = useState(false);
+  
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "TEST";
+    document.title = "Cold & Flu Treatment - अनंत आरोग्य सदन | Natural Immune Support";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
@@ -54,7 +57,7 @@ export default function ColdFlu() {
   ];
 
   const scrollToBooking = () => {
-    window.location.href = "/#booking";
+    setBookingModalOpen(true);
   };
 
   return (
@@ -177,6 +180,11 @@ export default function ColdFlu() {
           </div>
         </section>
       </main>
+      <BookingModal
+        open={bookingModalOpen}
+        onOpenChange={setBookingModalOpen}
+        diseaseTitle="Cold & Flu Treatment"
+      />
       <Footer />
     </div>
   );

@@ -23,7 +23,10 @@ export default function Footer() {
               Holistic homoeopathic healthcare for natural, gentle healing.
             </p>
             <p className="text-xs text-muted-foreground font-medium">
-              <strong>Reg No:</strong> HC-REG-2024-XXXX
+              <strong>Reg No:</strong> 20562 (Patna)
+            </p>
+            <p className="text-xs text-muted-foreground mt-2">
+              <strong>Address:</strong> Chanho, dist. Ranchi, Jharkhand 835214
             </p>
           </div>
 
@@ -92,8 +95,8 @@ export default function Footer() {
             <div className="space-y-3 text-sm">
               <div className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                <a href="tel:+919999999999" className="text-muted-foreground hover:text-primary transition-colors break-all">
-                  +91 99999 99999
+                <a href="tel:+919288060107" className="text-muted-foreground hover:text-primary transition-colors break-all">
+                  +91 92880 60107
                 </a>
               </div>
               <div className="flex items-start gap-3">
@@ -109,7 +112,7 @@ export default function Footer() {
                     variant="outline" 
                     size="sm"
                     className="h-8 w-8 p-0"
-                    onClick={() => window.open("https://wa.me/919999999999", "_blank")}
+                    onClick={() => window.open("https://wa.me/919288060107", "_blank")}
                     data-testid="button-social-whatsapp"
                   >
                     <SiWhatsapp className="w-4 h-4" />

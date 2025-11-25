@@ -272,7 +272,7 @@ export default function Header() {
             <Button 
               variant="default"
               className="ml-4 gap-2"
-              onClick={() => window.open("https://wa.me/919999999999?text=Hello, I would like to book a consultation", "_blank")}
+              onClick={() => window.open("https://wa.me/919288060107?text=Hello, I would like to book a consultation", "_blank")}
               data-testid="button-whatsapp-header"
             >
               <SiWhatsapp className="w-4 h-4" />
@@ -373,7 +373,7 @@ export default function Header() {
               variant="default"
               className="w-full gap-2 mt-4"
               onClick={() => {
-                window.open("https://wa.me/919999999999?text=Hello, I would like to book a consultation", "_blank");
+                window.open("https://wa.me/919288060107?text=Hello, I would like to book a consultation", "_blank");
                 setIsMobileMenuOpen(false);
               }}
               data-testid="button-whatsapp-mobile"
